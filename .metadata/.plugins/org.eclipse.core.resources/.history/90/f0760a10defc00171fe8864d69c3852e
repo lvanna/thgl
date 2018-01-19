@@ -1,0 +1,10 @@
+package thgl;
+
+public class Athgl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
