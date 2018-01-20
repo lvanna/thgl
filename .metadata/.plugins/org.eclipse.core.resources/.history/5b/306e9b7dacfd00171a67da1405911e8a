@@ -61,8 +61,8 @@ public class Athgl {
     				c+=1;
     			}
 	    		if(((cut_data.get(i)[j]).substring(0, 1)).equals("a")){
-    				acutting[c]=cut_data.get(i)[j];
-    				c+=1;
+	    				acutting[c]=cut_data.get(i)[j];
+	    				c+=1;
 	    		}
 	    	}
 	    	adversary_a.add(acutting);
@@ -86,13 +86,14 @@ public class Athgl {
 	    	x = cut_data.get(i);
 	    	int c=0;
 	    	for(int j=0; j<x.length; j++){
-	    		if(c==0){
-    				bcutting[0] =cut_data.get(i)[j];
-    				c+=1;
-    			}
 	    		if(((cut_data.get(i)[j]).substring(0, 1)).equals("b")){
-	    			bcutting[c]=cut_data.get(i)[j];
-	    			c+=1;
+	    			if(c==0){
+	    				bcutting[0] =cut_data.get(i)[j];
+	    				c+=1;
+	    			}else{
+	    				bcutting[c]=cut_data.get(i)[j];
+	    				c+=1;
+	    			}
 	    		}
 	    	}
 	    	adversary_b.add(bcutting);
