@@ -1,0 +1,38 @@
+package thgl;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class ThreatID {
+	
+	static ArrayList<String[]> cut_data = new ArrayList<String[]>();
+	
+	
+	
+	public static void main(String[] args) throws IOException {
+		
+		String line;
+		FileReader fr = new FileReader("D:\\thgl\\original_db_T.txt");
+		BufferedReader br=new BufferedReader(fr);
+	    while ((line=br.readLine()) != null) {
+	        cutting = line.split(" ");
+	        cut_data.add(cutting);
+	    }
+	    br.close();
+	    fr.close();
+	    
+	    System.out.println("Original dataset T");
+	    for(int i=0; i<cut_data.size();i++){
+	    	x = cut_data.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		System.out.print(" "+ (cut_data.get(i)[j]));
+	    	}
+	    	System.out.println(" ");
+	    }
+	    System.out.println(" ");
+		
+	}
+	
+}

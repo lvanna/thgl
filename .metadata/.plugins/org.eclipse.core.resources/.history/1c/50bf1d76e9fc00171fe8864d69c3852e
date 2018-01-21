@@ -1,0 +1,86 @@
+package thgl;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Athgl {
+	
+	static ArrayList<String[]> cut_data = new ArrayList<String[]>();
+	static ArrayList<String[]> adversary_a = new ArrayList<String[]>();
+	static ArrayList<String[]> adversary_b = new ArrayList<String[]>();
+	static String x[];
+	static String cutting[];
+	static String[ ] acutting = new String[10]; 
+	static String[ ] bcutting = new String[10]; 
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		String line;
+		FileReader fr = new FileReader("D:\\thgl\\original_db_T.txt");
+		BufferedReader br=new BufferedReader(fr);
+	    while ((line=br.readLine()) != null) {
+	        cutting = line.split(" ");
+	        cut_data.add(cutting);
+	    }
+	    br.close();
+	    fr.close();
+	    
+	    System.out.println("Original dataset T");
+	    for(int i=0; i<cut_data.size();i++){
+	    	x = cut_data.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		System.out.print(" "+ (cut_data.get(i)[j]));
+	    	}
+	    	System.out.println(" ");
+	    }
+	    
+	    System.out.println("dataset adversary A");
+	    int c=0;
+	    for(int i=0; i<cut_data.size();i++){
+	    	x = cut_data.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		if(((cut_data.get(i)[j]).substring(0, 1)).equals("a")){
+	    			if(c==0){
+	    				acutting[0] =cut_data.get(i)[j];
+	    				c+=1;
+	    			}else{
+	    				acutting[c]=cut_data.get(i)[j];
+	    				c+=1;
+	    			}
+	    		}
+	    	}
+	    	adversary_a.add(acutting);
+	    }
+	    for(int i=0; i<adversary_a.size();i++){
+	    	x = adversary_a.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		System.out.print(" "+ (adversary_a.get(i)[j]));
+	    	}
+	    	System.out.println(" ");
+	    	System.out.println(" ");
+	    }
+	    
+	    System.out.println("dataset adversary B");
+	    for(int i=0; i<cut_data.size();i++){
+	    	x = cut_data.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		if(((cut_data.get(i)[j]).substring(0, 1)).equals("b")){
+	    			bcutting[bcutting.length+1]=cut_data.get(i)[j];
+	    		}
+	    		adversary_b.add(bcutting);
+	    	}
+	    }
+	    for(int i=0; i<adversary_b.size();i++){
+	    	x = adversary_b.get(i);
+	    	for(int j=0; j<x.length; j++){
+	    		System.out.print(" "+ (adversary_b.get(i)[j]));
+	    	}
+	    	System.out.println(" ");
+	    	System.out.println(" ");
+	    }
+	}
+
+}
